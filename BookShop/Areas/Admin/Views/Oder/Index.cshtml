@@ -1,0 +1,102 @@
+﻿@model IEnumerable<BookShop.Models.order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
+}
+
+@section Styles{
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/Assets/Admin/plugins/datatables/dataTables.bootstrap.css">
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box ">
+            <div class="box-header">
+                <a href="/Admin/Oder/Create" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Thêm mới</a>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <table id="example" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.address_ship)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.date_order)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.full_name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.note)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.phone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.status)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.sum_money)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.user.address)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.address_ship)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.date_order)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.full_name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.note)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.phone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.sum_money)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.user.address)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) 
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+@section Scripts{
+    <!-- DataTables -->
+    <script src="~/Assets/Admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Assets/Admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="~/Assets/Admin/plugins/datatables/dataTables.alphabetSearch.js"></script>
+}
